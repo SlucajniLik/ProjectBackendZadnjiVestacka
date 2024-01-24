@@ -768,7 +768,7 @@ def gameOver(board,player):
 
      
 
-""" 
+
 def evaluate(board,originalPlayer,type):
   evaluation=0
   legalMovesPlayerOne=len(getMoves(board,originalPlayer)[0])
@@ -879,9 +879,9 @@ def evaluate(board,originalPlayer,type):
      
            
   return evaluation
-""" 
 
 
+"""  
 def evaluate(board,originalPlayer,type):
   evaluation=0
   legalMovesPlayerOne=len(getMoves(board,originalPlayer)[0])
@@ -992,7 +992,7 @@ def evaluate(board,originalPlayer,type):
      
            
   return evaluation
-
+"""
  
 
 
