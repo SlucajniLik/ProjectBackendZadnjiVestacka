@@ -859,6 +859,7 @@ def evaluate(board,originalPlayer,type):
         else:
             
              if currentBoard<=3:
+                evaluation+=200*(nuumMillBlack-nuumMillWhite)
                 evaluation=150*(possibleMillBlack-possibleMillWhite)
                 evaluation+=30*(firstBoard-secondBoard)
              elif currentBoard>3:
