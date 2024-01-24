@@ -1031,9 +1031,9 @@ def alphaBeta(pl,board,current,depth,maxDepth,alpha,beta,dificulty,originalPlaye
  
 
          if depth==maxDepth or gameOver(board,current):
-          print(dificulty,evaluate(board,originalPlayer,dificulty))
+          #print(dificulty,evaluate(board,originalPlayer,dificulty))
           return evaluate(board,originalPlayer,dificulty),None,None
-          #return current,None,None
+    
          next=current*-1
          bestBoard1=None
          bestMove=None
@@ -1041,19 +1041,19 @@ def alphaBeta(pl,board,current,depth,maxDepth,alpha,beta,dificulty,originalPlaye
               bestScore=float('-inf')
               result1, result2 = getMoves(board,current)
               for board1,move in zip(result1, result2):
-                   print(board1,"player: ",current," depth : ",depth,"Move: ",move)
+                   #print(board1,"player: ",current," depth : ",depth,"Move: ",move)
                    currentScore=alphaBeta(False,board1,next,depth+1,maxDepth,alpha,beta,dificulty,originalPlayer)[0]
-                   print('currentScore : ',currentScore,"  MaxBestScore  : ",bestScore )
+                   #print('currentScore : ',currentScore,"  MaxBestScore  : ",bestScore )
                    if currentScore>bestScore:
                       bestScore=currentScore      
-                      print("Postavljen  MaxBestScore  : ",bestScore )         
+                      #print("Postavljen  MaxBestScore  : ",bestScore )         
                       bestBoard1=board1
                       bestMove=move
                    #alpha = max(alpha, currentScore)
                    alpha = max(alpha, bestScore)
                     
                    if alpha>=beta:
-                    print("alpha: ",alpha," beta: ",beta)
+                    #print("alpha: ",alpha," beta: ",beta)
                     break
                    
 
@@ -1063,20 +1063,20 @@ def alphaBeta(pl,board,current,depth,maxDepth,alpha,beta,dificulty,originalPlaye
               bestScore=float('inf')
               result1, result2 = getMoves(board,current)
               for board1,move in zip(result1,result2):
-                   print(board1,"player: ",current," depth : ",depth," Move : ",move)
+                   #print(board1,"player: ",current," depth : ",depth," Move : ",move)
 
                    
                    currentScore=alphaBeta(True,board1,next,depth+1,maxDepth,alpha,beta,dificulty,originalPlayer)[0]
-                   print('currentScore : ',currentScore,"  MinBestScore  : ",bestScore )
+                   #print('currentScore : ',currentScore,"  MinBestScore  : ",bestScore )
                    if currentScore<bestScore:
                       bestScore=currentScore   
-                      print("Postavljen  MinBestScore  : ",bestScore )             
+                      #print("Postavljen  MinBestScore  : ",bestScore )             
                       bestBoard1=board1
                       bestMove=move
                    beta = min(beta, bestScore)
                    #beta = min(beta, currentScore)
                    if alpha>=beta:
-                      print("alpha: ",alpha," beta: ",beta)
+                      #print("alpha: ",alpha," beta: ",beta)
                       break
                    
               return bestScore,bestBoard1,bestMove
@@ -1090,4 +1090,4 @@ def alphaBeta(pl,board,current,depth,maxDepth,alpha,beta,dificulty,originalPlaye
     
     
 #print("Evaluacija:   ",evaluate(start_statee,-1,'hard'))
-print("Hostovan")
+print("Radi")

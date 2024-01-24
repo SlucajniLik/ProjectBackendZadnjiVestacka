@@ -63,43 +63,4 @@ def playMills(request):
         return JsonResponse({ 'move': move, 'score':score})
 
 
-        """ 
-        
-        state=json.loads(request.body)
-    
-        dificulty=state['dificulty']
-        if dificulty == "easy":
-            move=minimax()
-        elif dificulty =="medium":
-            move=alphabeta()
-        else:
-            move=alphabeta()
-        
-
-        osoba=json.loads(request.body)
-        name=osoba['name']
-        code=osoba['code']
-        data={
-            'message':'hello '+name,
-            'code':code
-        }
-    
-        
-
-
-
-
-
-
-
-
-
-        return JsonResponse(data)
-
-
-    def minimax():
-        return {'color':'black'}
-
-    def alphabeta():
-        return {'color':'red'}
-    """
+       

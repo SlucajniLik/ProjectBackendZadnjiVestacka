@@ -20,7 +20,7 @@ def depth_first_search(graph):
         if len(path) == num_nodes:
             path.append(0)
             print("trenutni stek" + str(path_stack))
-            print("Optimalni put: " + str(path))
+            print("Depth first: "+"Optimalni put: " + str(path))
             return path
 
         children = graph[current_node]
@@ -113,14 +113,14 @@ def branch_and_bound(graph):
     path_queue = [Node(0, 0, [0])]
 
     while path_queue:
-        print("Path queue:", json.dumps([node.to_dict() for node in path_queue]))
+        #print("Path queue:", json.dumps([node.to_dict() for node in path_queue]))
         current_node = path_queue.pop(0)
 
-        print("Current node:"+str(current_node.current_node)+"Current cost:"+str(current_node.cost)+ "Current path:"+str(current_node.path))
+        #print("Current node:"+str(current_node.current_node)+"Current cost:"+str(current_node.cost)+ "Current path:"+str(current_node.path))
 
         if len(current_node.path) == num_of_nodes + 1:
             
-            print("Optimal node: "+str(current_node.current_node)+"Optimal cost: "+str(current_node.cost)+"Optimal path: "+
+            print("BranchAndBound"+"Optimal node: "+str(current_node.current_node)+"Optimal cost: "+str(current_node.cost)+"Optimal path: "+
                   str(current_node.path))
                   
             return current_node.path
@@ -172,29 +172,29 @@ def A_star(graph):
     Temp = []
 
     while path_queue:
-        print("Path queue:", json.dumps([node.to_dict() for node in path_queue]))
+        #print("Path queue:", json.dumps([node.to_dict() for node in path_queue]))
         current_node = path_queue.pop(0)
        
 
-        print("Current node:", current_node.current_node, "Current cost:", current_node.cost,
-              "Heuristic:", current_node.heuristics, "Total cost:", current_node.total_cost,
-              "Current path:", current_node.path)
+        #print("Current node:", current_node.current_node, "Current cost:", current_node.cost,
+              #"Heuristic:", current_node.heuristics, "Total cost:", current_node.total_cost,
+              #"Current path:", current_node.path)
 
         if len(current_node.path) == num_of_nodes + 1:
-            print("Optimal node:", current_node.current_node, "Optimal cost:", current_node.cost,
+            print("AStar"+"Optimal node:", current_node.current_node, "Optimal cost:", current_node.cost,
                   "Optimal heuristic:", current_node.heuristics, "Optimal total cost:", current_node.total_cost,
                   "Optimal path:", current_node.path)
             return current_node.path
 
         children = graph[current_node.current_node]
         Temp = make_matrix_for_kruskal(graph)
-        print(Temp)
+        #print(Temp)
         k = 0
 
         for k in range(1, len(current_node.path)):
             Temp = [item for item in Temp if  (item[0] != current_node.path[k] and item[1] != current_node.path[k])]
 
-        print("Temp:", k, "||", Temp)
+        #print("Temp:", k, "||", Temp)
 
         MST_cost = kruskal_algo(len(graph), Temp)
 
@@ -262,9 +262,9 @@ def kruskal_algo(n, edge):
         if v1 != v2:
             union_set(v1, v2, parent, rank, n)
             min_cost += wt
-            print(edge[i][0], "--", edge[i][1], "==", wt)
+            #print(edge[i][0], "--", edge[i][1], "==", wt)
 
-    print("Heuristic:", min_cost)
+    #print("Heuristic:", min_cost)
     return min_cost
 
 
