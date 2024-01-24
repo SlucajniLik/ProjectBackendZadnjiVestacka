@@ -55,7 +55,7 @@ def playMills(request):
              depth=2
         elif hardness==3:
              dificulty='hard'
-             depth=3
+             depth=2
      
         
         score,_,move=alphaBeta(True,data,currentPlayer,0,depth,float('-inf'),float('inf'),dificulty,currentPlayer)
