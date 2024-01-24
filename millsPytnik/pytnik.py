@@ -59,7 +59,7 @@ def brute_force_tsp(matrix):
         if current_cost < min_cost:
             min_cost = current_cost
             min_cost_path = path
-    print(min_cost_path)
+    print("Brute force: ",min_cost_path)
     return min_cost_path
 
 
@@ -120,7 +120,7 @@ def branch_and_bound(graph):
 
         if len(current_node.path) == num_of_nodes + 1:
             
-            print("BranchAndBound"+"Optimal node: "+str(current_node.current_node)+"Optimal cost: "+str(current_node.cost)+"Optimal path: "+
+            print("BranchAndBound: "+"Optimal node: "+str(current_node.current_node)+"Optimal cost: "+str(current_node.cost)+"Optimal path: "+
                   str(current_node.path))
                   
             return current_node.path
@@ -181,7 +181,7 @@ def A_star(graph):
               #"Current path:", current_node.path)
 
         if len(current_node.path) == num_of_nodes + 1:
-            print("AStar"+"Optimal node:", current_node.current_node, "Optimal cost:", current_node.cost,
+            print("AStar: "+"Optimal node:", current_node.current_node, "Optimal cost:", current_node.cost,
                   "Optimal heuristic:", current_node.heuristics, "Optimal total cost:", current_node.total_cost,
                   "Optimal path:", current_node.path)
             return current_node.path
